@@ -18,6 +18,10 @@ Project is built using:
 
 To start the project, please run "npm start"
 
+## Browser support
+* For IE - change "target" in tsconfig.json from "es2018" to "es5"
+* For Edge un IE - replace "http" with "https" in urls inside the environment files (e.g. geocoding service)
+
 
 ## Build
 
