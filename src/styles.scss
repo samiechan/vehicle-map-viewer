@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+.avatar {
+    border-radius: 4px;    
+    width: 150px;    
+}
+
+.shadow {
+    -webkit-box-shadow: 10px 7px 83px -31px rgba(0,0,0,0.27);
+    -moz-box-shadow: 10px 7px 83px -31px rgba(0,0,0,0.27);
+    box-shadow: 10px 7px 83px -31px rgba(0,0,0,0.27);
+}
+
+.spacer {
+    margin-top: 15px;
+}

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row justify-content-left align-items-center shadow">
+      <div class="col-lg-2 text-center">                        
+        <div *ngIf="user">          
+          <h3 class="title">Selected user</h3>
+          <div><img class ="avatar" [src]="user.owner?.foto"></div>
+          <h5>{{ user.owner?.name }} {{ user.owner?.surname }}</h5>          
+        </div>        
+        <button type="button" class="btn btn-dark spacer" (click)="gotoUserList()">Go back</button>
+      </div>      
+      <div class="col-lg-8">        
+          <h1 class="text-center">Map view</h1>          
+          <!-- Map -->
+            <div class="map-frame">
+              <div id="map"></div>
+            </div>          
+          <div *ngIf="!locations" class="table-danger">
+            <div class="alert alert-danger text-center" role="alert">Could not get the location data. Please, try again later.</div>
+          </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h1 class="text-center spacer">Vehicle list</h1>
+        <table class="table shadow table-hover">
+          <thead class="thead-dark">
+            <tr class="text-center">
+              <th scope="col">Image</th>
+              <th scope="col">Id</th>
+              <th scope="col">Manufacturer</th>
+              <th scope="col">Model</th>
+              <th scope="col">Year</th>
+              <th scope="col">Color</th>
+              <th scope="col">Vin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngIf="user?.vehicles">                
+                <tr *ngFor="let vehicle of user.vehicles" class="text-center" (click)="onListItemSelect(vehicle.vehicleid)" [class.selected]="vehicle.vehicleid === selectedVehicleId">                  
+                  <td><img class ="avatar" [src]="vehicle.foto" onError="this.onerror=null;this.src='/images/noimage.gif';"></td>
+                  <td>{{ vehicle.vehicleid }}</td>
+                  <td>{{ vehicle.make }}</td>
+                  <td>{{ vehicle.model }}</td>
+                  <td>{{ vehicle.year }}</td>
+                  <td>{{ vehicle.color }}</td>
+                  <td>{{ vehicle.vin }}</td>
+                </tr>              
+            </ng-container>            
+            <tr *ngIf="!user?.vehicles" class="table-danger">
+              <td colspan="7" class="text-center">User vehicle list currently is not available. Please, try again later.</td>
+            </tr>
+        </tbody>        
+      </table>      
+    </div>    
+  </div>  
+</div>

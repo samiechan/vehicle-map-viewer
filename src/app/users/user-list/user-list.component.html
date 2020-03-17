@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row justify-content-center">    
+    <div class="col-8">
+      <h1 class="text-center">User view</h1>
+      <table class="table shadow">
+        <thead class="thead-dark">
+          <tr class="text-center">
+            <th scope="col">Image</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Vehicle count</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let user of users">
+            <tr *ngIf="user">
+              <td class="text-center"><img class ="avatar" [src]="user.owner?.foto"></td>
+              <td class="text-center">{{ user.userid }}</td>
+              <td class="text-center">{{ user.owner?.name }}</td>
+              <td class="text-center">{{ user.owner?.surname }}</td>
+              <td class="text-center">{{ user.vehicles?.length }}</td>
+              <td class="text-center">
+                <a class="btn btn-outline-dark" [routerLink]="['/user', user.userid]" role="button">Show</a>
+              </td>
+            </tr>
+          </ng-container>
+          <tr *ngIf="error" class="table-danger">
+            <td colspan="6" class="text-center">Could not get the user list. Please, try again later.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+</div>

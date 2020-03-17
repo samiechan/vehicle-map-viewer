@@ -1,0 +1,4 @@
+{
+    "usersUrl": "http://mobi.connectedcar360.net/api/?op=list",
+    "vehicleLocationsUrl": "http://mobi.connectedcar360.net/api/?op=getlocations&userid={userid}"
+  }
